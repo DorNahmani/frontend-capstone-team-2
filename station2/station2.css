@@ -1,0 +1,107 @@
+body {
+    background-color: #0b0b1a; 
+    background-image:  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("WhatsApp Image 2026-01-08 at 18.23.17.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: #16162d;
+    opacity: 0.8;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #3498db;
+}
+
+.crystal-grid {
+    margin: 30px 0;
+}
+
+.crystal {
+    width: 60px;
+    height: 100px;
+    background-color: white; 
+    display: inline-block;
+    margin: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 10px white;
+    transition: 0.3s;
+}
+
+#checkBtn {
+    padding: 10px 30px;
+    background-color: #f1c40f;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 15px #f1c40f;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+#checkBtn:active {
+    transform: scale(0.95);
+}
+
+.player-welcome {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #f1c40f; 
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+
+.dragon-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    width: 180px;
+    transition: 0.3s ease-in-out;
+    pointer-events: none; 
+    z-index: 10;
+}
+
+#dragonImg {
+    width: 100%;
+    filter: brightness(1.1) drop-shadow(0 0 15px rgba(241, 196, 15, 0.6));
+}
+
+
+.shake {
+    animation: shakeAnim 0.5s linear infinite;
+}
+
+@keyframes shakeAnim {
+    0% { transform:  scale(1); }
+    25% { transform:  scale(1.15); } 
+    50% { transform: scale(1.15); }
+    75% { transform:  scale(1.15); }
+    100% { transform:  scale(1); }
+}
+.dragon-container {
+    animation: dragonFloat 4s ease-in-out infinite;
+}
+
+@keyframes dragonFloat {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 0px); } 
+}
+
+@media (max-width:900px)
+{
+    .container{ 
+        width: 90%;
+
+}}
