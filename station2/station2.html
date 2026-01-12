@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>תחנה 2 - חידת הקריסטלים</title>
+    <link rel="stylesheet" href="station2.css">
+</head>
+<body>
+    <h2 id="welcomeMsg" class="player-welcome">שלום שוליה!</h2>
+
+    <div class="container">
+        <h1>משימה 2: קוד הקריסטלים</h1>
+        <p class="hint">"רק כאשר שני עלי יער יגנו על לב הממלכה, והאוקיינוס יחתום את הגבול המזרחי, השער ייפתח "</p>
+        
+        <div class="crystal-grid">
+            <div id="crystalR" class="crystal" onclick="changeColor('crystalR')" style="background-color: white;"></div>
+            <div id="crystalM" class="crystal" onclick="changeColor('crystalM')" style="background-color: white;"></div>
+            <div id="crystalL" class="crystal" onclick="changeColor('crystalL')" style="background-color: white;"></div>
+        </div>
+
+        <button id="checkBtn">בדוק שילוב</button>
+    </div>
+
+    <div class="dragon-container">
+        <img id="dragonImg" src="dragon_sleep.png" alt="דרקון ישן">
+    </div>
+
+    <script src="station2.js"></script>
+</body>
+</html>
