@@ -2,7 +2,10 @@
 let savedName = localStorage.getItem("playerName");
 const welcomeElement = document.getElementById("welcomeMsg");
 if (savedName) { welcomeElement.innerText = "שלום " + savedName + "!"; }
-else {window.location.href = "station1.html";}
+else {window.location.href = "../station1/station1.html";}
+
+let statusGame = localStorage.getItem("status");
+if(statusGame != 2) {window.location.href = "../station"+statusGame+"/station"+statusGame+".html";}
 
 const roarSound = new Audio('mixkit-angry-dragon-growl-309.wav'); 
 
@@ -32,6 +35,7 @@ document.getElementById("checkBtn").addEventListener("click", function() {
 
     if (left === "green" && middle === "green" && right === "blue") {
         alert("הקריסטלים מאירים! השער נפתח.");
+        localStorage.setItem("status", 3);
         window.location.href = "../station3/station3.html"; 
     } else {
         roarSound.currentTime = 0;

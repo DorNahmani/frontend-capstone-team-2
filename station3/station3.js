@@ -1,7 +1,10 @@
 let savedName = localStorage.getItem("playerName");
 const welcomeElement = document.getElementById("welcomeMsg");
 if (savedName) { welcomeElement.innerText = "שלום " + savedName + "!"; }
-else {window.location.href = "station1.html";}
+else {window.location.href = "../station1/station1.html";}
+
+let statusGame = localStorage.getItem("status");
+if(statusGame != 3) {window.location.href = "../station"+statusGame+"/station"+statusGame+".html";}
 
 const correctIngredients = ["blue-mushroom", "green-herb", "purple-crystal"];
 
@@ -59,8 +62,9 @@ function checkPotion() {
         
         setTimeout(() => {
             alert("כל הכבוד שוליה! רקיחת השיקוי הושלמה. אתה בדרך לחופש!");
-            // window.location.href = "station4.html"; // כאן נשים את הקישור לסוף
-        }, 1200);
+            localStorage.setItem("status", 4);
+            window.location.href = "../station4/station4.html";       
+         }, 1200);
 
     } else {
         statusMsg.innerText = "אוי לא! השיקוי התפוצץ. נסה שוב...";
