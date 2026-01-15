@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תחנה 3: רקיחת השיקוי</title>
+    <link rel="stylesheet" href="station3.css">
+</head>
+
+<body>
+    <h2 id="welcomeMsg" class="player-welcome">שלום שוליה!</h2>
+    <div class="container">
+             <h1>המשימה: רקיחת שיקוי החופש</h1>
+            <div class="riddle-box">
+                <p id="riddleText">
+                    "כדי לפתוח את השער, השלך לקדירה את: <br>
+                    <strong>צבע השמיים</strong>, <strong>צבע הדשא</strong>, והצבע שנוצר מ<strong>ערבוב אדום וכחול</strong>."
+                </p>
+            </div>
+
+        <div class="alchemy-table">
+            <div class="ingredients-grid">
+                <div class="ingredient" id="red-mushroom" onclick="selectIngredient('red-mushroom')">
+                    <img src="red_mushroom.jpeg" alt="פטריה אדומה">
+                </div>
+                <div class="ingredient" id="blue-mushroom" onclick="selectIngredient('blue-mushroom')">
+                    <img src="blue_mushroom.jpeg" alt="פטריה כחולה">
+                </div>
+                <div class="ingredient" id="green-herb" onclick="selectIngredient('green-herb')">
+                    <img src="green_herb.jpeg" alt="צמח ירוק">
+                </div>
+                <div class="ingredient" id="yellow-potion" onclick="selectIngredient('yellow-potion')">
+                    <img src="yellow_potion.jpeg" alt="שיקוי צהוב">
+                </div>
+                <div class="ingredient" id="purple-crystal" onclick="selectIngredient('purple-crystal')">
+                    <img src="purple_crystal.jpeg" alt="קריסטל סגול">
+                </div>
+                <div class="ingredient" id="white-crystal" onclick="selectIngredient('white-crystal')">
+                    <img src="white_crystal.jpeg" alt="קריסטל לבן">
+                </div>
+            </div>
+             
+            <div id="statusMsg">לחץ על מרכיב להוספה</div>
+
+        </div>
+
+        <button id="brewBtn" onclick="checkPotion()">ערבב את השיקוי!</button>
+    </div>
+
+    <script src="station3.js"></script>
+</body>
+</html>
