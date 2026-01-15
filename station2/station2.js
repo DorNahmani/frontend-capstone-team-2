@@ -2,7 +2,7 @@
 let savedName = localStorage.getItem("playerName");
 const welcomeElement = document.getElementById("welcomeMsg");
 if (savedName) { welcomeElement.innerText = "שלום " + savedName + "!"; }
-
+else {window.location.href = "station1.html";}
 
 const roarSound = new Audio('mixkit-angry-dragon-growl-309.wav'); 
 
