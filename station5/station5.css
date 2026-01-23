@@ -10,18 +10,9 @@ body
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;}
- {
-    background-color: #0b0b1a;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
 }
-
+ 
 .container {
     background-color: rgba(22, 22, 45, 0.95);
     width: 60%;
@@ -29,7 +20,7 @@ body
     padding: 40px;
     border-radius: 20px;
     text-align: center;
-    border: 2px solid #f1c40f; /* גבול זהב חגיגי */
+    border: 2px solid #f1c40f; 
     box-shadow: 0 0 40px rgba(241, 196, 15, 0.3);
 }
 
