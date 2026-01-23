@@ -1,3 +1,5 @@
+let savedName = localStorage.getItem("playerName");
+const welcomeElement = document.getElementById("welcomeMsg");
 // --- הגדרת אלמנטים ---
 const music = document.getElementById("bgMusic");
 const roarSound = new Audio('mixkit-angry-dragon-growl-309.wav'); 
@@ -26,13 +28,34 @@ if (savedName) {
     window.location.href = "../station1/station1.html";
 }
 
+if (savedName) { 
+    welcomeElement.innerText = "שלום " + savedName + "!"; 
+} else {
+    window.location.href = "../station1/station1.html";
+}
+
+// בדיקת סטטוס מושבתת לצורך עבודה חלקה על הפרויקט
+/*
 let statusGame = localStorage.getItem("status");
 if(statusGame != 2) {
+    window.location.href = "../station"+statusGame+"/station"+statusGame+".html";
+}
+*/
+
+const roarSound = new Audio('mixkit-angry-dragon-growl-309.wav'); 
+const clickSound = new Audio('magic_click.mp3.wav'); 
+
+const colors = ["white", "blue", "red", "green"];
+const dragonImg = document.getElementById("dragonImg");
     window.location.href = "../station" + statusGame + "/station" + statusGame + ".html";
 }
 
 // --- פונקציית שינוי צבע ---
 function changeColor(id) {
+    if (clickSound) {
+        clickSound.currentTime = 0; 
+        clickSound.play().catch(e => console.log("Sound blocked"));
+    }
     // וידוא שהמוזיקה מתחילה ברגע שנוגעים בקריסטל הראשון
     ensureMusicPlays();
 
@@ -54,12 +77,17 @@ document.getElementById("checkBtn").addEventListener("click", function() {
     const middle = document.getElementById("crystalM").style.backgroundColor;
     const right = document.getElementById("crystalR").style.backgroundColor;
 
+    // בדיקת השילוב הנכון (ירוק, ירוק, כחול)
     if (left === "green" && middle === "green" && right === "blue") {
         alert("הקריסטלים מאירים! השער נפתח.");
+        
+        // עדכון סטטוס ומעבר מיידי לתחנה הבאה
         localStorage.setItem("status", 3);
         window.location.href = "../station3/station3.html"; 
     } else {
+        // צליל הדרקון ואנימציה בטעות
         roarSound.currentTime = 0;
+        roarSound.play().catch(e => console.error("Sound blocked"));
         roarSound.play().catch(e => console.error("שאגת הדרקון נחסמה"));
         
         dragonImg.src = "dragon_awake.png";
