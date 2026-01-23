@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>תחנה 3: רקיחת השיקוי</title>
     <link rel="stylesheet" href="station3.css">
+    
+    <link rel="preload" href="../station4/WhatsApp Image 2026-01-08 at 18.23.19.jpeg" as="image">
 </head>
 
 <body>
     <h2 id="welcomeMsg" class="player-welcome">שלום שוליה!</h2>
     <div class="container">
-             <h1>המשימה: רקיחת שיקוי החופש</h1>
-            <div class="riddle-box">
-                <p id="riddleText">
-                    "כדי לפתוח את השער, השלך לקדירה את: <br>
-                    <strong>צבע השמיים</strong>, <strong>צבע הדשא</strong>, והצבע שנוצר מ<strong>ערבוב אדום וכחול</strong>."
-                </p>
-            </div>
+        <h1>המשימה: רקיחת שיקוי החופש</h1>
+        <div class="riddle-box">
+            <p id="riddleText">
+                "כדי לפתוח את השער, השלך לקדירה את: <br>
+                <strong>צבע השמיים</strong>, <strong>צבע הדשא</strong>, והצבע שנוצר מ<strong>ערבוב אדום וכחול</strong>."
+            </p>
+        </div>
 
         <div class="alchemy-table">
             <div class="ingredients-grid">
@@ -39,13 +41,14 @@
                     <img src="white_crystal.jpeg" alt="קריסטל לבן">
                 </div>
             </div>
-             
             <div id="statusMsg">לחץ על מרכיב להוספה</div>
-
         </div>
-
         <button id="brewBtn" onclick="checkPotion()">ערבב את השיקוי!</button>
     </div>
+
+    <audio id="clinkSound">
+        <source src="bottle clink.mp3" type="audio/mpeg">
+    </audio>
 
     <script src="station3.js"></script>
 </body>

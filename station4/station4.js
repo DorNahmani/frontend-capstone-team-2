@@ -9,6 +9,9 @@ let timeForCurrentGhost = 5;
 let gameActive = false;
 let countdownInterval; 
 
+const catchSound = document.getElementById("catchSound");
+const loseSound = document.getElementById("loseSound"); // הגדרת סאונד ההפסד
+
 const gameArea = document.getElementById("game-area");
 const scoreDisplay = document.getElementById("score");
 const timerDisplay = document.getElementById("timer");
@@ -63,6 +66,10 @@ function spawnGhost() {
         }, 800);
 
         ghost.onclick = function() {
+            if (catchSound) {
+                catchSound.currentTime = 0; 
+                catchSound.play();
+            }
             caughtGhosts++;
             scoreDisplay.innerText = caughtGhosts;
             clearInterval(ghostMovement); 
@@ -77,6 +84,13 @@ function gameOver() {
     gameActive = false;
     clearInterval(countdownInterval);
     gameArea.innerHTML = "";
+
+    // השמעת סאונד הפסד
+    if (loseSound) {
+        loseSound.currentTime = 0;
+        loseSound.play();
+    }
+
     document.getElementById("ui-container").style.backgroundColor = "rgba(22, 22, 45, 0.9)";
     document.getElementById("game-stats").innerHTML = `
         <img src="loser ghost.png" class="loser-ghost-img">
