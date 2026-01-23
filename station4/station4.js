@@ -1,4 +1,3 @@
-// --- הגדרת אלמנטים ---
 const music = document.getElementById("bgMusic");
 const catchSound = document.getElementById("catchSound");
 const loseSound = document.getElementById("loseSound");
@@ -12,7 +11,6 @@ if (savedName) {
     document.getElementById("welcomeMsg").innerText = "שלום " + savedName + "!"; 
 }
 
-// עדכון סטטוס לתחנה הנוכחית
 localStorage.setItem("status", 4);
 
 let caughtGhosts = 0;
@@ -20,18 +18,15 @@ let timeForCurrentGhost = 5;
 let gameActive = false;
 let countdownInterval; 
 
-// --- פונקציה להפעלת מוזיקת הרקע ---
 function ensureMusicPlays() {
     if (music && music.paused) {
         music.play().catch(err => console.log("מוזיקה מחכה לאינטראקציה..."));
     }
 }
 
-// ניסיון הפעלה בטעינה (יעבוד אם עברת מתחנה 3)
 window.addEventListener("load", ensureMusicPlays);
 
 function startGame() {
-    // הפעלת מוזיקה ברגע הלחיצה על כפתור ההתחלה
     ensureMusicPlays();
 
     document.getElementById("start-screen").style.display = "none";
@@ -82,7 +77,6 @@ function spawnGhost() {
         }, 800);
 
         ghost.onclick = function() {
-            // מוודא שהמוזיקה ממשיכה לנגן
             ensureMusicPlays();
 
             if (catchSound) {
