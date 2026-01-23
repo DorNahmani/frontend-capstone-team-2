@@ -1,0 +1,84 @@
+body
+{  background-color: #0b0b1a; 
+    background-image:  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("WhatsApp\ Image\ 2026-01-08\ at\ 18.23.19.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;}
+ {
+    background-color: #0b0b1a;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgba(22, 22, 45, 0.95);
+    width: 60%;
+    max-width: 700px;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid #f1c40f; /* גבול זהב חגיגי */
+    box-shadow: 0 0 40px rgba(241, 196, 15, 0.3);
+}
+
+h1 {
+    color: #f1c40f;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(241, 196, 15, 0.5);
+}
+
+.victory-msg {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.marketing-section {
+    margin-top: 30px;
+    border-top: 1px solid #34495e;
+    padding-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #3498db;
+    background: #0b0b1a;
+    color: white;
+}
+
+#submitBtn {
+    padding: 15px;
+    background-color: #f1c40f;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #f1c40f;
+}
+
+#submitBtn:hover {
+    transform: scale(1.05);
+    background-color: #d4af37;
+    box-shadow: 0 0 30px #f1c40f;
+}
