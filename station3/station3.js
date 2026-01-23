@@ -1,37 +1,30 @@
-// --- הגדרת אלמנטים ---
 const music = document.getElementById("bgMusic");
 const clinkSound = document.getElementById("clinkSound");
 const welcomeElement = document.getElementById("welcomeMsg");
 let savedName = localStorage.getItem("playerName");
 
-// --- פונקציה להפעלת מוזיקת הרקע ---
 function ensureMusicPlays() {
     if (music && music.paused) {
         music.play().catch(err => console.log("מחכה לאינטראקציה לנגינת מוזיקה..."));
     }
 }
 
-// ניסיון הפעלה בטעינת הדף
 window.addEventListener("load", () => {
     ensureMusicPlays();
 });
 
-// לחיצה כללית על המסך כגיבוי
 document.addEventListener("click", ensureMusicPlays);
 
-// --- ניהול שם שחקן ---
 if (savedName) { 
     welcomeElement.innerText = "שלום " + savedName + "!"; 
 } else {
     window.location.href = "../station1/station1.html";
 }
 
-// לוגיקת המשימה
 const correctIngredients = ["blue-mushroom", "green-herb", "purple-crystal"];
 let selectedIngredients = [];
 
 function selectIngredient(ingredientId) {
-    // וידוא שהמוזיקה פועלת ברגע שמתחילים לבחור מרכיבים
     ensureMusicPlays();
 
     if (clinkSound) {
