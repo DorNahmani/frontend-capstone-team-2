@@ -1,22 +1,43 @@
+// --- הגדרת אלמנטים ---
+const music = document.getElementById("bgMusic");
+const roarSound = new Audio('mixkit-angry-dragon-growl-309.wav'); 
+const clickSound = new Audio('magic_click.mp3.wav'); 
+const dragonImg = document.getElementById("dragonImg");
+const colors = ["white", "blue", "red", "green"];
 
+// --- פונקציה להפעלת מוזיקת הרקע ---
+function ensureMusicPlays() {
+    if (music && music.paused) {
+        music.play().catch(err => console.log("מחכה לאינטראקציה ראשונה לנגינת מוזיקה..."));
+    }
+}
+
+// ניסיון ראשון בטעינת הדף
+window.addEventListener("load", () => {
+    ensureMusicPlays();
+});
+
+// --- ניהול שם שחקן וסטטוס ---
 let savedName = localStorage.getItem("playerName");
 const welcomeElement = document.getElementById("welcomeMsg");
-if (savedName) { welcomeElement.innerText = "שלום " + savedName + "!"; }
-else {window.location.href = "../station1/station1.html";}
+if (savedName) { 
+    welcomeElement.innerText = "שלום " + savedName + "!"; 
+} else {
+    window.location.href = "../station1/station1.html";
+}
 
 let statusGame = localStorage.getItem("status");
-if(statusGame != 2) {window.location.href = "../station"+statusGame+"/station"+statusGame+".html";}
+if(statusGame != 2) {
+    window.location.href = "../station" + statusGame + "/station" + statusGame + ".html";
+}
 
-const roarSound = new Audio('mixkit-angry-dragon-growl-309.wav'); 
-
-const clickSound = new Audio('magic_click.mp3.wav'); 
-
-const colors = ["white", "blue", "red", "green"];
-const dragonImg = document.getElementById("dragonImg");
-
+// --- פונקציית שינוי צבע ---
 function changeColor(id) {
+    // וידוא שהמוזיקה מתחילה ברגע שנוגעים בקריסטל הראשון
+    ensureMusicPlays();
+
     clickSound.currentTime = 0; 
-    clickSound.play().catch(e => console.log("צליל נחסם עד לאינטראקציה ראשונה"));
+    clickSound.play().catch(e => console.log("צליל קליק נחסם"));
 
     const crystal = document.getElementById(id);
     let currentColor = crystal.style.backgroundColor;
@@ -27,7 +48,7 @@ function changeColor(id) {
     crystal.style.boxShadow = "0 0 20px " + newColor; 
 }
 
-
+// --- בדיקת שילוב ---
 document.getElementById("checkBtn").addEventListener("click", function() {
     const left = document.getElementById("crystalL").style.backgroundColor;
     const middle = document.getElementById("crystalM").style.backgroundColor;
@@ -39,7 +60,7 @@ document.getElementById("checkBtn").addEventListener("click", function() {
         window.location.href = "../station3/station3.html"; 
     } else {
         roarSound.currentTime = 0;
-        roarSound.play().catch(e => console.error("הסאונד נחסם:", e));
+        roarSound.play().catch(e => console.error("שאגת הדרקון נחסמה"));
         
         dragonImg.src = "dragon_awake.png";
         dragonImg.classList.add("shake");
