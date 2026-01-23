@@ -1,27 +1,39 @@
-let savedName = localStorage.getItem("playerName");
-const welcomeElement = document.getElementById("welcomeMsg");
+// --- הגדרת אלמנטים ---
+const music = document.getElementById("bgMusic");
 const clinkSound = document.getElementById("clinkSound");
+const welcomeElement = document.getElementById("welcomeMsg");
+let savedName = localStorage.getItem("playerName");
 
-// הצגת שם השחקן
+// --- פונקציה להפעלת מוזיקת הרקע ---
+function ensureMusicPlays() {
+    if (music && music.paused) {
+        music.play().catch(err => console.log("מחכה לאינטראקציה לנגינת מוזיקה..."));
+    }
+}
+
+// ניסיון הפעלה בטעינת הדף
+window.addEventListener("load", () => {
+    ensureMusicPlays();
+});
+
+// לחיצה כללית על המסך כגיבוי
+document.addEventListener("click", ensureMusicPlays);
+
+// --- ניהול שם שחקן ---
 if (savedName) { 
     welcomeElement.innerText = "שלום " + savedName + "!"; 
 } else {
-    // אם אין שם, מחזיר לתחנה 1 כדי להזין שם
     window.location.href = "../station1/station1.html";
 }
 
-/* בדיקת סטטוס - הפכתי להערה כדי שלא יקפיץ אותך אוטומטית לתחנה 4 
-   כשאתה מנסה לבדוק את תחנה 3.
-*/
-// let statusGame = localStorage.getItem("status");
-// if(statusGame != 3) {
-//     window.location.href = "../station"+statusGame+"/station"+statusGame+".html";
-// }
-
+// לוגיקת המשימה
 const correctIngredients = ["blue-mushroom", "green-herb", "purple-crystal"];
 let selectedIngredients = [];
 
 function selectIngredient(ingredientId) {
+    // וידוא שהמוזיקה פועלת ברגע שמתחילים לבחור מרכיבים
+    ensureMusicPlays();
+
     if (clinkSound) {
         clinkSound.currentTime = 0;
         clinkSound.play();
@@ -69,10 +81,8 @@ function checkPotion() {
         statusMsg.innerText = "השיקוי מוכן! הצלחת במשימה!";
         statusMsg.style.color = "#2ecc71";         
         
-        // ה-Alert עוצר את הכל. המעבר יקרה רק אחרי שתלחץ אישור.
         alert("כל הכבוד " + savedName + "! רקיחת השיקוי הושלמה. אתה בדרך לחופש!");
         
-        // עדכון סטטוס ומעבר דף
         localStorage.setItem("status", 4);
         window.location.href = "../station4/station4.html"; 
 

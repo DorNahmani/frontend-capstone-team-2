@@ -1,7 +1,18 @@
+// --- הגדרת אלמנטים ---
+const music = document.getElementById("bgMusic");
+const catchSound = document.getElementById("catchSound");
+const loseSound = document.getElementById("loseSound");
+const gameArea = document.getElementById("game-area");
+const scoreDisplay = document.getElementById("score");
+const timerDisplay = document.getElementById("timer");
+const nextBtn = document.getElementById("nextBtn");
+
 let savedName = localStorage.getItem("playerName");
 if (savedName) { 
     document.getElementById("welcomeMsg").innerText = "שלום " + savedName + "!"; 
 }
+
+// עדכון סטטוס לתחנה הנוכחית
 localStorage.setItem("status", 4);
 
 let caughtGhosts = 0;
@@ -9,15 +20,20 @@ let timeForCurrentGhost = 5;
 let gameActive = false;
 let countdownInterval; 
 
-const catchSound = document.getElementById("catchSound");
-const loseSound = document.getElementById("loseSound"); // הגדרת סאונד ההפסד
+// --- פונקציה להפעלת מוזיקת הרקע ---
+function ensureMusicPlays() {
+    if (music && music.paused) {
+        music.play().catch(err => console.log("מוזיקה מחכה לאינטראקציה..."));
+    }
+}
 
-const gameArea = document.getElementById("game-area");
-const scoreDisplay = document.getElementById("score");
-const timerDisplay = document.getElementById("timer");
-const nextBtn = document.getElementById("nextBtn");
+// ניסיון הפעלה בטעינה (יעבוד אם עברת מתחנה 3)
+window.addEventListener("load", ensureMusicPlays);
 
 function startGame() {
+    // הפעלת מוזיקה ברגע הלחיצה על כפתור ההתחלה
+    ensureMusicPlays();
+
     document.getElementById("start-screen").style.display = "none";
     document.getElementById("game-stats").style.display = "block";
     document.getElementById("ui-container").style.backgroundColor = "rgba(22, 22, 45, 0.4)";
@@ -66,6 +82,9 @@ function spawnGhost() {
         }, 800);
 
         ghost.onclick = function() {
+            // מוודא שהמוזיקה ממשיכה לנגן
+            ensureMusicPlays();
+
             if (catchSound) {
                 catchSound.currentTime = 0; 
                 catchSound.play();
@@ -85,7 +104,6 @@ function gameOver() {
     clearInterval(countdownInterval);
     gameArea.innerHTML = "";
 
-    // השמעת סאונד הפסד
     if (loseSound) {
         loseSound.currentTime = 0;
         loseSound.play();
