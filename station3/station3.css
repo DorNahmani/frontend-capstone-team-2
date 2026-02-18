@@ -1,6 +1,5 @@
 body {
     background-color: #0b0b1a; 
-    /* אם התמונה בתוך תיקיית station3, הנתיב צריך להיות פשוט השם שלה */
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("WhatsApp\ Image\ 2026-01-08\ at\ 18.23.19.jpeg");
     background-repeat: no-repeat;
     background-position: center;
@@ -17,7 +16,7 @@ body {
 
 .container {
     text-align: center;
-    background: rgba(22, 22, 45, 0.8); /* שיניתי ל-rgba כדי שהאופסיטי ישפיע רק על הרקע */
+    background: rgba(22, 22, 45, 0.8); 
     padding: 30px;
     border-radius: 20px;
     border: 1px solid #3498db;
@@ -105,4 +104,39 @@ body {
 @keyframes brew {
     0%, 100% { transform: rotate(-2deg); }
     50% { transform: rotate(2deg) scale(1.02); }
+}
+@media (max-width: 900px) {
+    body {
+        padding: 10px;
+        align-items: flex-start; 
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 95%; 
+        padding: 15px; 
+        margin-top: 50px;
+    }
+
+
+    .ingredients-grid {
+        gap: 10px; 
+        padding: 15px;
+        grid-template-columns: repeat(3, 1fr); 
+    }
+
+    .ingredient {
+        width: 70px;  
+        height: 70px;
+    }
+
+    #brewBtn {
+        width: 100%; 
+        padding: 12px;
+        font-size: 1.1rem;
+        margin-top: 20px;
+    }
+
+
 }
