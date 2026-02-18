@@ -1,0 +1,124 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #d35400;
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    direction: rtl;
+    text-align: right;
+}
+
+.adr-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-top: 10px solid var(--secondary-color);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.subtitle {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.decision-section {
+    margin-bottom: 35px;
+}
+
+h2 {
+    color: var(--white);
+    background-color: var(--primary-color);
+    padding: 8px 15px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.label {
+    font-weight: bold;
+    color: var(--secondary-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+p {
+    margin: 5px 0;
+}
+
+/* --- הגדרות קריטיות להדפסה ללא חיתוך --- */
+@media print {
+    @page {
+        size: A4;
+        margin: 15mm; /* הגדלת שולי הדף */
+    }
+
+    body {
+        background: white !important;
+        background-color: white !important;
+        padding: 0;
+        margin: 0;
+        height: auto; /* מאפשר לגוף לגדול לפי התוכן */
+        overflow: visible; /* מונע חיתוך של תוכן שיוצא מהמסגרת */
+    }
+
+    .adr-card {
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+        overflow: visible !important;
+    }
+
+    .decision-section {
+        page-break-inside: avoid; /* מנסה לשמור כל סעיף שלם בעמוד אחד */
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        background-color: var(--primary-color) !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .label, .reason-title, .subtitle {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color: var(--secondary-color) !important;
+    }
+}
