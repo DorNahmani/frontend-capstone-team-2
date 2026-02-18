@@ -1,0 +1,132 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e67e22;
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 40px 20px;
+    line-height: 1.6;
+    text-align: right;
+}
+
+.charter-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border-top: 8px solid var(--secondary-color);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+.project-subtitle {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-right: 4px solid var(--secondary-color);
+    padding: 10px 15px;
+    margin-top: 35px;
+    font-size: 1.4rem;
+    background: #f1f7ff;
+    border-radius: 4px 0 0 4px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 15px;
+    text-align: right;
+    border: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.role-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.role-item {
+    padding: 15px;
+    border-right: 4px solid #ddd;
+    background: #fafafa;
+    border-radius: 4px 0 0 4px;
+    transition: all 0.2s ease;
+}
+
+.role-item:hover {
+    transform: translateX(-5px);
+    border-right-color: var(--accent-color);
+    background: #fffcf9;
+}
+
+.name-label {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.tag {
+    background: var(--secondary-color);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+@media print {
+    body { background: white; padding: 0; }
+    .charter-card { box-shadow: none; border: 1px solid #eee; width: 100%; }
+}
