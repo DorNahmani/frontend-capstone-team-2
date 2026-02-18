@@ -6,6 +6,11 @@ if (savedName) {
 } else {
     window.location.href = "../station1/station1.html";
 }
+let statusnum = localStorage.getItem("status")
+if (statusnum != 2 ) {
+    window.location.href = "../station" + statusnum + "/station" + statusnum + ".html";
+}
+
 
 const music = document.getElementById("bgMusic");
 const roarSound = new Audio('mixkit-angry-dragon-growl-309.wav'); 

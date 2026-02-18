@@ -1,3 +1,16 @@
+let savedName = localStorage.getItem("playerName");
+const welcomeElement = document.getElementById("welcomeMsg");
+
+if (savedName) { 
+    welcomeElement.innerText = "שלום " + savedName + "!"; 
+} else {
+    window.location.href = "../station1/station1.html";
+}
+let statusnum = localStorage.getItem("status")
+if (statusnum != 4 ) {
+    window.location.href = "../station" + statusnum + "/station" + statusnum + ".html";
+}
+
 const music = document.getElementById("bgMusic");
 const catchSound = document.getElementById("catchSound");
 const loseSound = document.getElementById("loseSound");
@@ -6,12 +19,7 @@ const scoreDisplay = document.getElementById("score");
 const timerDisplay = document.getElementById("timer");
 const nextBtn = document.getElementById("nextBtn");
 
-let savedName = localStorage.getItem("playerName");
-if (savedName) { 
-    document.getElementById("welcomeMsg").innerText = "שלום " + savedName + "!"; 
-}
 
-localStorage.setItem("status", 4);
 
 let caughtGhosts = 0;
 let timeForCurrentGhost = 5; 

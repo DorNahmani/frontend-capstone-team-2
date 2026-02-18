@@ -1,3 +1,14 @@
+let savedName = localStorage.getItem("playerName");
+const welcomeElement = document.getElementById("welcomeMsg");
+
+if (!savedName) { 
+    window.location.href = "../station1/station1.html";
+}
+let statusnum = localStorage.getItem("status")
+if (statusnum != 5 ) {
+    window.location.href = "../station" + statusnum + "/station" + statusnum + ".html";
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     
     const music = document.getElementById("bgMusic");
@@ -33,6 +44,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const name = document.getElementById("userNameInput").value;
 
         alert(`תודה ${name}! הקופון שלך בדרך למייל: ${email}. ניפגש במעבדה האמיתית!`);
+
+        localStorage.removeItem(savedName);
+        localStorage.setItem("status",1);
         
     });
 });

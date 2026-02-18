@@ -1,7 +1,18 @@
+let savedName = localStorage.getItem("playerName");
+const welcomeElement = document.getElementById("welcomeMsg");
+
+if (savedName) { 
+    welcomeElement.innerText = "שלום " + savedName + "!"; 
+} else {
+    window.location.href = "../station1/station1.html";
+}
+let statusnum = localStorage.getItem("status")
+if (statusnum != 3 ) {
+    window.location.href = "../station" + statusnum + "/station" + statusnum + ".html";
+}
+
 const music = document.getElementById("bgMusic");
 const clinkSound = document.getElementById("clinkSound");
-const welcomeElement = document.getElementById("welcomeMsg");
-let savedName = localStorage.getItem("playerName");
 
 function ensureMusicPlays() {
     if (music && music.paused) {
@@ -15,11 +26,7 @@ window.addEventListener("load", () => {
 
 document.addEventListener("click", ensureMusicPlays);
 
-if (savedName) { 
-    welcomeElement.innerText = "שלום " + savedName + "!"; 
-} else {
-    window.location.href = "../station1/station1.html";
-}
+
 
 const correctIngredients = ["blue-mushroom", "green-herb", "purple-crystal"];
 let selectedIngredients = [];
