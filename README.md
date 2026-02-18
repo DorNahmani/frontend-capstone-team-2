@@ -27,9 +27,7 @@ Deployment: GitHub Pages.
 עיצוב רספונסיבי: התאמה מלאה למכשירים ניידים (Mobile Friendly) באמצעות Media Queries.
 
 🚀 הוראות הפעלה
-הורידו את המאגר (Clone) או פתחו את הקישור הישיר.
-
-פתחו את הקובץ הראשי (בכתובת של תחנה 1) בכל דפדפן מודרני (Chrome/Edge מומלץ).
+פתחו את הקישור
 
 הזינו את שמכם בתיבת הטקסט ולחצו על "התחל במשימה".
 
